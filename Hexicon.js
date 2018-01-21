@@ -99,7 +99,7 @@ function Hexicon(svg, text) {
 	      var h = _this.sdbm(s);
 //console.warn('%d (%s)', h, (h >>> 0).toString(2));
 	      var rgb = _this.getRgb(h);
-	      svg.innerHTML = '<polygon style="stroke: ' + rgb + '; fill: ' + rgb + ';" points="' + _this.outerPts() + '"></polygon>';
+	      svg.innerHTML = '<!-- Hexicon.js text=[' + s + '] --><polygon style="stroke: ' + rgb + '; fill: ' + rgb + ';" points="' + _this.outerPts() + '"></polygon>';
 
 	      rgb = _this.getRgb(h >>> 15);
 	      var shape = [ [0,1], [1/3,1], [1/3,2/3], [1/3,1/3],
