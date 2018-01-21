@@ -5,20 +5,30 @@ function Hexicon(svg, text) {
     var theta = Math.PI / 6;
     var rotPattern = [ [Math.PI / 3, -Math.PI / 3, Math.PI], [2 * Math.PI / 3, -2 * Math.PI / 3, 2 * Math.PI] ];
 
+    //it seems firefox insists and empty svg is .clientWidth,.clientHeight = 0,0 no matter what!  hacktacular:
+    _this.svgWH = function(el) {
+        var wh = [];
+        wh.push(el.clientWidth || el.style.width || el.getAttribute('width'));
+        wh.push(el.clientHeight || el.style.height || el.getAttribute('height'));
+        wh[0] = parseInt(wh[0]);
+        wh[1] = parseInt(wh[1]);
+        return wh;
+    };
+
     _this.create = function(svg, text) {
         _this.svg = svg;
         if (!text) text = svg.getAttribute('data-text');
         if (!text) return;
-        var w = svg.clientWidth;
-        var h = svg.clientHeight;
-        var ratio = w / h;
+        var wh = _this.svgWH(svg);
+        if (!wh[0] || !wh[1]) return;  //bummer
+        var ratio = wh[0] / wh[1];
         var R = Math.cos(theta);
         if (ratio < R) {
-            _this.scale = (w / 2) / R;
+            _this.scale = (wh[0] / 2) / R;
         } else {
-            _this.scale = h / 2;
+            _this.scale = wh[1] / 2;
         }
-        _this.ctr = [w/2, h/2];
+        _this.ctr = [wh[0]/2, wh[1]/2];
 //console.info('[%d, %d] %d', _this.ctr[0], _this.ctr[1], _this.scale);
         _this.hexicon(text);
     };
