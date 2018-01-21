@@ -7,3 +7,15 @@ A *hexicon* is like an [identicon](https://en.wikipedia.org/wiki/Identicon), but
 This javascript library creates the hexicon using an svg.  The hashing function used is [sdbm](http://www.cse.yorku.ca/~oz/hash.html), which is what I found used in some identicon libraries.  The patterning and color algorithms are all my own, but it is (obviously) based on rotational symmetry.  I can explain it if anyone dare to want more details.
 
 
+## Usage
+
+```javascript
+
+var el = document.getElementById('svg-element');
+
+var hex = new Hexicon(el, "some text");
+
+hex.updateText("something different");
+```
+
+
