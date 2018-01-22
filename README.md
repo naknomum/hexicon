@@ -18,8 +18,11 @@ Try out some [dynamical examples](https://naknomum.github.io/hexicon-example/) o
 var el = document.getElementById('svg-element');
 
 var hex = new Hexicon(el, "some text");
-
 hex.updateText("something different");
+
+var hash = hex.getHash();
+hex.updateHash('3ddd0999');
+hex.updateHash(1037896089);
 ```
 
 
