@@ -28,13 +28,12 @@ function Hexicon(svg, text) {
         }
         _this.ctr = [wh[0]/2, wh[1]/2];
         //console.info('[%d, %d] %d', _this.ctr[0], _this.ctr[1], _this.scale);
-        _this.hexicon(text);
     };
 
     _this.create = function(svg, text) {
+        _this.init(svg);
         if (!text) text = svg.getAttribute('data-text');
         if (!text) return;
-        _this.init(svg);
         _this.hexicon(text);
     };
 
