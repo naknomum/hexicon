@@ -25,4 +25,6 @@ hex.updateHash('3ddd0999');
 hex.updateHash(1037896089);
 ```
 
+## Similar projects
 
+For related work, check out [Awesome Identicons](https://github.com/drhus/awesome-identicons), a curated list of _visual hashes_ maintained by **Husam ABBOUD**.
