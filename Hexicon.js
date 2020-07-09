@@ -98,7 +98,7 @@ function Hexicon(svg, text) {
             var pts = '';
             for (var i = 0 ; i < arrPts.length ; i++) {
                 var m = _this.coord(arrPts[i], rotPattern[rpattern][r]);
-                pts += m[0] + ',' + m[1] + ' ';
+                pts += _this.niceDecimal(m[0]) + ',' + _this.niceDecimal(m[1]) + ' ';
             }
             var polygon = '<polygon points="' + pts + '" style="' + style + '"></polygon>';
             _this.svg.innerHTML += polygon;
@@ -109,6 +109,9 @@ function Hexicon(svg, text) {
         return Math.floor((v32 / 31) * 255);
     };
 
+    _this.niceDecimal = function(d) {
+        return Math.round(d * 1000) / 1000;
+    };
 
     _this.getRgb = function(h) {
         var b = _this.rgb32(h & 31);
@@ -154,7 +157,7 @@ function Hexicon(svg, text) {
         var pts = '';
         for (var i = 0 ; i < 6 ; i++) {
             var p = _this.coord([1,1], (i+1) * Math.PI / 3);
-            pts += p[0] + ',' + p[1] + ' ';
+            pts += _this.niceDecimal(p[0]) + ',' + _this.niceDecimal(p[1]) + ' ';
         }
         return pts;
     };
