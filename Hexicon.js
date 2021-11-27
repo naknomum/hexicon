@@ -51,6 +51,7 @@ function Hexicon(svg, text) {
     };
 
     _this.sdbm = function(s) {
+        if (s.length < 6) s = s + s + s + s + s;  //short strings kinda suck
         var h = 0;
         for (var i = 0 ; i < s.length ; i++) {
             h = s.charCodeAt(i) + (h << 6) + (h << 16) - h;
